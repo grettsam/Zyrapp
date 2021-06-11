@@ -1,0 +1,28 @@
+{
+  "name": "zyrapp",
+  "version": "1.0.0",
+  "description": "Proyect Zyrapp",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/grettsam/Zyrapp.git"
+  },
+  "keywords": [
+    "zyrapp",
+    "inacap",
+    "store"
+  ],
+  "author": "Proyecto M",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/grettsam/Zyrapp/issues"
+  },
+  "homepage": "https://github.com/grettsam/Zyrapp#readme",
+  "dependencies": {
+    "bootstrap": "^5.0.1",
+    "mysql": "^2.18.1"
+  }
+}
