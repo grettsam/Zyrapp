@@ -23,6 +23,7 @@
   "homepage": "https://github.com/grettsam/Zyrapp#readme",
   "dependencies": {
     "@fortawesome/fontawesome-free": "^5.15.3",
+    "chart.js": "^3.3.2",
     "mysql": "^2.18.1"
   }
 }

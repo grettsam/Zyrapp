@@ -13,9 +13,18 @@
       rel="stylesheet"
     />
 
-    <script defer src="node_modules/@fortawesome/fontawesome-free/js/brands.js"></script>
-    <script defer src="node_modules/@fortawesome/fontawesome-free/js/solid.js"></script>
-    <script defer src="node_modules/@fortawesome/fontawesome-free/js/fontawesome.js"></script>
+    <script
+      defer
+      src="node_modules/@fortawesome/fontawesome-free/js/brands.js"
+    ></script>
+    <script
+      defer
+      src="node_modules/@fortawesome/fontawesome-free/js/solid.js"
+    ></script>
+    <script
+      defer
+      src="node_modules/@fortawesome/fontawesome-free/js/fontawesome.js"
+    ></script>
 
     <title>Zyrapp</title>
   </head>
@@ -27,21 +36,47 @@
         </div>
         <h3>Admin</h3>
         <ul class="navBar__list">
-  
-            <a href=""><li>Clientes</li></a>
-            <a href=""><li>Usuarios</li></a>
-            <a href=""><li>Guias</li></a>
-           
+          <a href=""><li>Inicio</li></a>
+          <a href=""><li>Clientes</li></a>
+          <a href=""><li>Usuarios</li></a>
+          <a href=""><li>Guias</li></a>
         </ul>
         <div class="navBar__logout">
-            <button>Logout  <i class="fas fa-sign-out-alt"></i></button>
-        </div> 
+          <button>Logout <i class="fas fa-sign-out-alt"></i></button>
+        </div>
       </section>
       <section class="contents">
-          <article>cliente</article>
-          <article>Usuario</article>
-          <article>guia</article>
+        <div class="contents__title"><h2>Dashboard Admin</h2></div>
+
+        <article class="contents__add-guide">
+          <button>Agregar Guía <i class="fas fa-plus-circle"></i></button>
+        </article>
+        <article class="contents__count-client">
+          <div class="contents__count-client--label">
+            <h3>Total de Clientes</h3>
+            <p>52</p>
+          </div>
+        </article>
+        <article class="contents__count-user">
+          <div class="contents__count-user--label">
+            <h3>Total de Usuarios</h3>
+            <p>1254</p>
+          </div>
+        </article>
+        <!--ChartsJs-->
+        <article class="contents__client">cliente</article>
+        <article class="contents__user">
+          Usuario
+          <canvas id="myChart2"></canvas>
+        </article>
+        <article class="contents__guide">
+          Guias
+          <canvas id="myChart"></canvas>
+        </article>
       </section>
     </main>
+
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+    <script src="charts_Js/chart.js"></script>
   </body>
 </html>
