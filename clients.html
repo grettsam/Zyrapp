@@ -37,7 +37,7 @@
         <h3>Admin</h3>
         <ul class="navBar__list">
           <a href="home.html"><li>Inicio</li></a>
-          <a href=""><li>Clientes</li></a>
+          <a href="clients.html"><li>Clientes</li></a>
           <a href=""><li>Usuarios</li></a>
           <a href=""><li>Guias</li></a>
         </ul>
@@ -45,38 +45,137 @@
           <button>Logout <i class="fas fa-sign-out-alt"></i></button>
         </div>
       </section>
+
       <section class="contents">
         <div class="contents__title"><h2>Dashboard Admin</h2></div>
-
-        <article class="contents__add-guide">
-          <button>Agregar Guía <i class="fas fa-plus-circle"></i></button>
-        </article>
-        <article class="contents__count-client">
-          <div class="contents__count-client--label">
-            <h3>Total de Clientes</h3>
-            <p>52</p>
-          </div>
-        </article>
-        <article class="contents__count-user">
-          <div class="contents__count-user--label">
-            <h3>Total de Usuarios</h3>
-            <p>1254</p>
-          </div>
-        </article>
         <!--ChartsJs-->
-        <article class="contents__client">cliente</article>
-        <article class="contents__user">
-          Usuario
-          <canvas id="myChart2"></canvas>
+        <article class="contents__client" style="grid-row: 2 / 13">
+          <h3>Tabla Cliente</h3>
+          <br />
+          <!-- <label id="texto_nav1"></label> -->
+
+          <table class="tabla">
+            <tr>
+              <th>ID</th>
+
+              <th>NOMBRE</th>
+
+              <th>CORREO</th>
+
+              <th>PASSWORD</th>
+
+              <th>PLAN</th>
+
+              <th>FECHA INICIO</th>
+
+              <th>FECHA TERMINO</th>
+            </tr>
+
+            <tbody>
+              <tr>
+                <td>1</td>
+
+                <td>Juan</td>
+
+                <td>juan@gmail.com</td>
+                <td>*********</td>
+
+                <td>basico</td>
+
+                <td>12/06/2021</td>
+                <td>12/07/2021</td>
+              </tr>
+
+              <tr>
+                <td>2</td>
+
+                <td>Pablo</td>
+
+                <td>pablo@google.cl</td>
+
+                <td>*******</td>
+
+                <td>premium</td>
+
+                <td>12/06/2021</td>
+                <td>12/07/2021</td>
+              </tr>
+            </tbody>
+          </table>
         </article>
-        <article class="contents__guide">
-          Guias
-          <canvas id="myChart"></canvas>
+        <hr />
+
+        <article class="addClients">
+          <h3>Agregar nuevo cliente</h3>
+          <form action="" method="post">
+            <div class="">
+              <label for="">Nombre</label>
+              <input type="text" />
+            </div>
+            <div class="">
+              <label for="">Email</label>
+              <input type="email" />
+            </div>
+            <div class="">
+              <label for="">Password</label>
+              <input type="password" />
+            </div>
+            <div class="">
+              <label for="ChoosePlan">¿Que plan contrato? </label>
+              <select name="ChoosePlan" id="ChoosePlan">
+                <option value="basico">basico</option>
+                <option value="medio">medio</option>
+                <option value="premium">premium</option>
+              </select>
+            </div>
+            <button>Agregar</button>
+          </form>
+        </article>
+        <hr />
+
+        <article class="updateClients">
+          <h3>Actualizar Cliente</h3>
+          <div class="">Buscar Cliente <input type="text" /></div>
+          <form action="" method="post">
+            <div class="">
+              <label for="">Nombre</label>
+              <input type="text" />
+            </div>
+            <div class="">
+              <label for="">Email</label>
+              <input type="email" />
+            </div>
+            <div class="">
+              <label for="">Password</label>
+              <input type="password" />
+            </div>
+            <div class="">
+              <label for="">Fecha </label>
+              <input type="date" />
+            </div>
+            <div class="">
+              <label for="ChoosePlan">¿Que plan contrato? </label>
+              <select name="ChoosePlan" id="ChoosePlan">
+                <option value="basico">basico</option>
+                <option value="medio">medio</option>
+                <option value="premium">premium</option>
+              </select>
+            </div>
+            <button>Editar</button>
+          </form>
+        </article>
+        <hr />
+
+        <article class="deleteClients">
+          <h3>Eliminar Cliente</h3>
+          <div class="">Buscar Cliente <input type="text" /></div>
+          <button>Eliminar</button>
         </article>
       </section>
     </main>
 
     <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
     <script src="charts_Js/chart.js"></script>
+    <script src="mysql/mysql.js"></script>
   </body>
 </html>
