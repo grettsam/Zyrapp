@@ -1,29 +1,42 @@
 {
   "name": "zyrapp",
   "version": "1.0.0",
-  "description": "Proyect Zyrapp",
+  "description": "Proyeto final",
   "main": "index.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "dev": "nodemon src/"
   },
   "repository": {
     "type": "git",
     "url": "git+https://github.com/grettsam/Zyrapp.git"
   },
   "keywords": [
-    "zyrapp",
-    "inacap",
-    "store"
+    "nodejs",
+    "mysql",
+    "CRUD",
+    "login"
   ],
-  "author": "Proyecto M",
-  "license": "MIT",
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "bcryptjs": "^2.4.3",
+    "connect-flash": "^0.1.1",
+    "express": "^4.17.1",
+    "express-handlebars": "^5.3.2",
+    "express-mysql-session": "^2.1.6",
+    "express-session": "^1.17.2",
+    "express-validator": "^6.11.1",
+    "morgan": "^1.10.0",
+    "mysql": "^2.18.1",
+    "passport": "^0.4.1",
+    "passport-local": "^1.0.0",
+    "timeago.js": "^4.0.2"
+  },
+  "devDependencies": {
+    "nodemon": "^2.0.7"
+  },
   "bugs": {
     "url": "https://github.com/grettsam/Zyrapp/issues"
   },
-  "homepage": "https://github.com/grettsam/Zyrapp#readme",
-  "dependencies": {
-    "@fortawesome/fontawesome-free": "^5.15.3",
-    "chart.js": "^3.3.2",
-    "mysql": "^2.18.1"
-  }
+  "homepage": "https://github.com/grettsam/Zyrapp#readme"
 }

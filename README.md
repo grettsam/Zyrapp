@@ -1,2 +1,0 @@
-# Zyrapp
-Zyrapp' Proyect 
