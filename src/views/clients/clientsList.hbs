@@ -27,7 +27,28 @@
               <td>{{timeago end_plan}}</td>
               <td>{{admin_id}}</td>
               <td><a href="/clients/edit/{{clients_id}}" class="btn btn-info"> <i class="fas fa-user-edit"></i></a></td>
-              <td><a href="" class="btn btn-success"><i class="far fa-calendar-plus"> 30</i></a></td>
+           
+              <td style="display: flex; ">
+              <button class="btn btn-primary " type="button" data-bs-toggle="collapse" data-bs-target="#collapseExample" aria-expanded="false" aria-controls="collapseExample">
+                <i class="far fa-calendar-plus"></i>
+              </button>
+              <div class="collapse" id="collapseExample" style="margin: 0 10px;"> 
+                  <a href="/clients/editTime1/{{clients_id}}" class="btn btn-success"><i class="far fa-calendar-plus"> 1</i></a>
+                  <a href="/clients/editTime3/{{clients_id}}" class="btn btn-success"><i class="far fa-calendar-plus"> 3</i></a>
+                  <a href="/clients/editTime6/{{clients_id}}" class="btn btn-success"><i class="far fa-calendar-plus"> 6</i></a>
+                  <a href="/clients/editTime12/{{clients_id}}" class="btn btn-success"><i class="far fa-calendar-plus"> 12</i></a>
+              </div>  
+              </td>
+
+
+
+
+
+            
+              
+              
+              
+              
               <td><a href="" class="btn btn-secondary"><i class="far fa-eye"></i> </a></td>
               <td><a href="/clients/delete/{{clients_id}}" class="btn btn-danger"><i class="far fa-trash-alt"></i></a></td>
             </tr>

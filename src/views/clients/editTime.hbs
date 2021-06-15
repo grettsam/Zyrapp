@@ -1,0 +1,23 @@
+<div class="container p-4">
+  <div class="row">
+    <div class="col-md-4 mx-auto">
+      <div class="card">
+        <h2 class="card-title mx-auto mt-2">Actualizar fecha</h2>
+        <div class="card-body">
+          <form action="/clients/editTime/{{cliente.clients_id}}" method="POST">
+
+            <button type="submit" class="btn btn-success" name="month" value="1">1 Mes</button>
+            <button type="submit" class="btn btn-success" name="month" value="3">3 Meses</button>
+            <button type="submit" class="btn btn-success" name="month" value="6">6 Meses</button>
+            <button type="submit" class="btn btn-success" name="month" value="12">12 Meses</button>
+
+          </form>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<script>
+  const fecha = new Date(); const timestamp = fecha .getTime();
+</script>

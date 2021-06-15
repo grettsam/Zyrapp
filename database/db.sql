@@ -23,9 +23,8 @@ CREATE TABLE clients(
     email VARCHAR(50) NOT NULL,
     password VARCHAR(60) NOT NULL,
     plan VARCHAR(20) NOT NULL,
-    type_accounts int(11) NOT NULL,
-    start_plan DATE NOT NULL DEFAULT NOW(),
-    end_plan DATE NOT NULL DEFAULT DATE_ADD(start_plan, INTERVAL 30 DAY),
+    start_plan DATE NOT NULL DEFAULT CURDATE(),
+    end_plan DATE NOT NULL DEFAULT ADDDATE(start_plan, INTERVAL 1 MONTH),
     admin_id INT(11),
     CONSTRAINT fk_admin FOREIGN KEY (admin_id) REFERENCES admin(admin_id)
 );
