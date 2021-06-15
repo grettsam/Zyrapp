@@ -1,0 +1,44 @@
+<div class=" p-4">
+  <div class="row">
+    <div class="col-9">
+        <h3>Tabla de clientes</h3>
+      <table class="table">
+        <thead>
+          <tr>
+            <th scope="col">#</th>
+            <th scope="col">Username</th>
+            <th scope="col">Email</th>
+            <th scope="col">Password</th>
+            <th scope="col">Plan</th>
+            <th scope="col">Start Plan</th>
+            <th scope="col">End Plan</th>
+            <th scope="col">Admin</th>
+          </tr>
+        </thead>
+        <tbody>
+          {{#each clientes}}
+            <tr>
+              <th scope="row">{{clients_id}}</th>
+              <td>{{username}}</td>
+              <td>{{email}}</td>
+              <td>{{password}}</td>
+              <td>{{plan}}</td>
+              <td>{{timeago start_plan}}</td>
+              <td>{{timeago end_plan}}</td>
+              <td>{{admin_id}}</td>
+              <td><a href="/clients/edit/{{clients_id}}" class="btn btn-info"> <i class="fas fa-user-edit"></i></a></td>
+              <td><a href="" class="btn btn-success"><i class="far fa-calendar-plus"> 30</i></a></td>
+              <td><a href="" class="btn btn-secondary"><i class="far fa-eye"></i> </a></td>
+              <td><a href="/clients/delete/{{clients_id}}" class="btn btn-danger"><i class="far fa-trash-alt"></i></a></td>
+            </tr>
+            {{else}}
+                <h3 style="color: rgb(147, 179, 6);">No hay clientes requistrados</h3>
+          {{/each}}
+        </tbody>
+      </table>
+    </div>
+    <div class="col-3">
+        {{>addClients}}
+    </div>
+  </div>
+</div>
