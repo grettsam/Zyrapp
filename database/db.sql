@@ -23,6 +23,7 @@ CREATE TABLE clients(
     email VARCHAR(50) NOT NULL,
     password VARCHAR(60) NOT NULL,
     plan VARCHAR(20) NOT NULL,
+    visibility BOOLEAN NOT NULL DEFAULT false,
     start_plan DATE NOT NULL DEFAULT CURDATE(),
     end_plan DATE NOT NULL DEFAULT ADDDATE(start_plan, INTERVAL 1 MONTH),
     admin_id INT(11),

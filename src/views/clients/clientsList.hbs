@@ -27,7 +27,7 @@
               <td>{{timeago end_plan}}</td>
               <td>{{admin_id}}</td>
               <td><a href="/clients/edit/{{clients_id}}" class="btn btn-info"> <i class="fas fa-user-edit"></i></a></td>
-           
+           {{!-- Add Day --}}
               <td style="display: flex; ">
               <button class="btn btn-primary " type="button" data-bs-toggle="collapse" data-bs-target="#collapseExample" aria-expanded="false" aria-controls="collapseExample">
                 <i class="far fa-calendar-plus"></i>
@@ -39,17 +39,15 @@
                   <a href="/clients/editTime12/{{clients_id}}" class="btn btn-success"><i class="far fa-calendar-plus"> 12</i></a>
               </div>  
               </td>
+          {{!-- change visibility --}}
+          {{#if visibility}}
+              <td><a href="/clients/visibility/{{clients_id}}" class="btn btn-success"> <i class="far fa-eye"></i> </a></td>
+          {{else}}
+              <td><a href="/clients/invisibility/{{clients_id}}" class="btn btn-secondary"> <i class="far fa-eye-slash"></i> </a>
+          {{/if}}
+              </td>
 
 
-
-
-
-            
-              
-              
-              
-              
-              <td><a href="" class="btn btn-secondary"><i class="far fa-eye"></i> </a></td>
               <td><a href="/clients/delete/{{clients_id}}" class="btn btn-danger"><i class="far fa-trash-alt"></i></a></td>
             </tr>
             {{else}}

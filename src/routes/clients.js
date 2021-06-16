@@ -31,7 +31,7 @@ router.get("/delete/:id", async (req, res) => {
   res.redirect("/clients");
 });
 
-//*******            UPDATE            ******/
+//*******            UPDATE INFO          ******/
 //Metodo async para editar los clientes por su id
 router.get("/edit/:id", async (req, res) => {
   const { id } = req.params;
@@ -54,8 +54,11 @@ router.post("/edit/:id", async (req, res) => {
   await pool.query(`UPDATE clients set ? WHERE clients_id= ?`, [newClient, id]);
   res.redirect("/clients");
 });
-/**************************************************** */
 
+/**************************************************** */
+//*******              UPDATE DATE               ******/
+
+/****** 1 MONTH *******/
 router.get("/editTime1/:id", async (req, res) => {
   const { id } = req.params;
   await pool.query(
@@ -64,7 +67,7 @@ router.get("/editTime1/:id", async (req, res) => {
   );
   res.redirect("/clients");
 });
-
+/****** 3 MONTH *******/
 router.get("/editTime3/:id", async (req, res) => {
   const { id } = req.params;
   await pool.query(
@@ -73,7 +76,7 @@ router.get("/editTime3/:id", async (req, res) => {
   );
   res.redirect("/clients");
 });
-
+/****** 6 MONTH *******/
 router.get("/editTime6/:id", async (req, res) => {
   const { id } = req.params;
   await pool.query(
@@ -82,7 +85,7 @@ router.get("/editTime6/:id", async (req, res) => {
   );
   res.redirect("/clients");
 });
-
+/****** 12 MONTH *******/
 router.get("/editTime12/:id", async (req, res) => {
   const { id } = req.params;
   await pool.query(
@@ -92,12 +95,23 @@ router.get("/editTime12/:id", async (req, res) => {
   res.redirect("/clients");
 });
 
+/**************************************************** */
+//*******           UPDATE VISIBILITY            ******/
 
+router.get("/visibility/:id", async (req, res) => {
+  const { id } = req.params;
+  await pool.query(`UPDATE clients set visibility = false WHERE clients_id= ?`, [
+    id,
+  ]);
+  res.redirect("/clients");
+});
 
-
-
-
-
-
+router.get("/invisibility/:id", async (req, res) => {
+  const { id } = req.params;
+  await pool.query(`UPDATE clients set visibility = true WHERE clients_id= ?`, [
+    id,
+  ]);
+  res.redirect("/clients");
+});
 
 module.exports = router;
