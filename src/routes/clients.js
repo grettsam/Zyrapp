@@ -2,6 +2,16 @@ const express = require("express");
 const router = express.Router();
 const pool = require("../database");
 
+
+
+//*******            READ            ******/
+//Metodo async para listar los clientes
+router.get("/", async (req, res) => {
+  const clientes = await pool.query("SELECT * FROM clients");
+  res.render("clients/clientsList", { clientes });
+});
+
+
 //*******            CREATE            ******/
 //Metodo async para enviar la query para agregar un nuevo cliente.
 router.post("/add", async (req, res) => {
@@ -16,12 +26,6 @@ router.post("/add", async (req, res) => {
   res.redirect("/clients");
 });
 
-//*******            READ            ******/
-//Metodo async para listar los clientes
-router.get("/", async (req, res) => {
-  const clientes = await pool.query("SELECT * FROM clients");
-  res.render("clients/clientsList", { clientes });
-});
 
 //*******            DELETE            ******/
 //Metodo async para eliminar los clientes por su id

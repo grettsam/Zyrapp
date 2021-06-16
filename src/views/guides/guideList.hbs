@@ -1,31 +1,31 @@
-<div class="p-4 ">
+<div class="p-4 container">
   <div class="row clients-list">
     <div class="col-9">
-        <h3>Tabla de clientes</h3>
+        <h3>Tabla de guias</h3>
       <table class="table table-clients">
         <thead>
           <tr>
             <th scope="col">#</th>
-            <th scope="col">Username</th>
-            <th scope="col">Email</th>
-            <th scope="col">Password</th>
-            <th scope="col">Plan</th>
-            <th scope="col">Start Plan</th>
-            <th scope="col">End Plan</th>
+            <th scope="col">Perfil</th>
+            <th scope="col">Nombre</th>
+            <th scope="col">Tipo</th>
+            <th scope="col">Creación</th>
+            <th scope="col">Busquedas</th>
+            <th scope="col">Productos</th>
             <th scope="col">Admin</th>
             <th colspan="4" scope="col" class="text-center">Options</th>
           </tr>
         </thead>
         <tbody>
-          {{#each clientes}}
+          {{#each guides}}
             <tr>
-              <th scope="row">{{clients_id}}</th>
-              <td>{{username}}</td>
-              <td>{{email}}</td>
-              <td>{{password}}</td>
-              <td>{{plan}}</td>
-              <td>{{timeago start_plan}}</td>
-              <td>{{timeago end_plan}}</td>
+              <th scope="row">{{guides_id}}</th>
+              <td><img width="50px" height="50px" src={{pic_profile}} alt=""></td>
+              <td>{{name_plant}}</td>
+              <td>{{type_plant}}</td>
+              <td>{{timeago created}}</td>
+              <td>{{searched}}</td>
+              <td>{{product}}</td>
               <td>{{admin_id}}</td>
 
 
@@ -63,13 +63,10 @@
 
             </tr>
             {{else}}
-                <h3 style="color: #b2a800;">No hay clientes requistrados</h3>
+                <h3 style="color: #b2a800;">No hay guias añadidas</h3>
           {{/each}}
         </tbody>
       </table>
-    </div>
-    <div class="col-3">
-        {{>addClients}}
     </div>
   </div>
 </div>

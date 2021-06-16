@@ -1,0 +1,41 @@
+/*
+#b2a800
+#434014
+*/
+
+body {
+  background-color: #b2a9004d;
+  font-family: "Lato", Arial, Helvetica, sans-serif;
+}
+
+/**/
+.navbar-brand img{
+  width: 100px;
+  height: auto;
+}
+/**/
+.clients-list h3{
+  text-align: center;
+  font-weight: 700;
+}
+
+.table-clients tr:nth-child(2n){
+  background-color: #ecece5da;
+}
+.table-clients thead{
+  background-color: #434014;
+  color: white;
+}
+
+
+
+
+tbody, td, tfoot, th, thead, tr {
+  border-color: transparent; 
+  border-style: none;
+  border-width: 0;
+}
+
+.buttons-clients-table {
+  width: 40px;
+}
