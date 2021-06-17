@@ -35,7 +35,7 @@ CREATE TABLE clients(
 CREATE TABLE guides(
     guides_id INT(11) NOT NULL PRIMARY KEY AUTO_INCREMENT,
     name_plant VARCHAR(50) NOT NULL,
-    type_plant VARCHAR(50) NOT NULL,
+    category VARCHAR(50) NOT NULL,
     pic_profile TEXT NOT NULL DEFAULT 'assets/img/logo.svg',
     pic_cover TEXT NOT NULL DEFAULT 'assets/img/logo.svg',
     text_guide TEXT NOT NULL,

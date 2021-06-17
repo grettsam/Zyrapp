@@ -1,0 +1,60 @@
+<div class="card">
+  <h2 class="card-title mx-auto mt-2">Nuevo Guia</h2>
+  <div class="card-body">
+    <form action="/guides/add" method="POST">
+      <div class="mb-3">
+        <input
+          type="text"
+          name="name_plant"
+          class="form-control"
+          placeholder="Nombre"
+          autofocus
+          required
+        />
+      </div>
+      <div class="mb-3">
+        <select class="form-select" required name="category" id="category">
+          <option value="Arbol">Arbol</option>
+          <option value="Planta">Planta</option>
+          <option value="Medicinal">Medicinal</option>
+          <option value="Decoracion">Decoracion</option>
+          <option value="Cactus">Cactus</option>
+        </select>
+      </div>
+      <div class="mb-3">
+        <input
+          type="file"
+          name="pic_profile"
+          class="form-control"
+          autofocus
+          required
+        />
+      </div>
+      <div class="mb-3">
+        <input
+          type="file"
+          name="pic_cover"
+          class="form-control"
+          autofocus
+          required
+        />
+      </div>
+
+      <div class="mb-3">
+        <div class="form-floating">
+          <textarea
+            class="form-control"
+            placeholder="Leave a comment here"
+            id="text_guide"
+            name="text_guide"
+          ></textarea>
+          <label for="text_guide">Comments</label>
+        </div>
+      </div>
+
+      <div class="mb-3 d-grid gap-2">
+        <button class="btn btn-success btn-block">Agregar</button>
+      </div>
+    </form>
+  </div>
+</div>

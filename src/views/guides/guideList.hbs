@@ -1,4 +1,4 @@
-<div class="p-4 container">
+<div class="p-4 mx-auto">
   <div class="row clients-list">
     <div class="col-9">
         <h3>Tabla de guias</h3>
@@ -8,7 +8,7 @@
             <th scope="col">#</th>
             <th scope="col">Perfil</th>
             <th scope="col">Nombre</th>
-            <th scope="col">Tipo</th>
+            <th scope="col">Categoria</th>
             <th scope="col">Creación</th>
             <th scope="col">Busquedas</th>
             <th scope="col">Productos</th>
@@ -31,35 +31,16 @@
 
  
                 {{!-- Buttons --}}
+  
+{{!------------------------------------- See more -------------------------------------}}
+              <td  class="buttons-clients-table"><a href="/clients/more/{{guides_id}}" class="btn btn-success"><i class="fas fa-seedling"></i></a></td>
 
 {{!------------------------------------- Edit -------------------------------------}}
-              <td class="buttons-clients-table"><a href="/clients/edit/{{clients_id}}" class="btn btn-info "> <i class="fas fa-user-edit"></i></a></td>
+              <td class="buttons-clients-table"><a href="/clients/edit/{{guides_id}}" class="btn btn-info "> <i class="fas fa-user-edit"></i></a></td>
 
 {{!------------------------------------- Delete -------------------------------------}}
-              <td  class="buttons-clients-table"><a href="/clients/delete/{{clients_id}}" class="btn btn-danger"><i class="far fa-trash-alt"></i></a></td>
+              <td  class="buttons-clients-table"><a href="/clients/delete/{{guides_id}}" class="btn btn-danger"><i class="far fa-trash-alt"></i></a></td>
   
-{{!------------------------------------- Change Visibility -------------------------------------}}
-              {{#if visibility}}
-                  <td  class="buttons-clients-table"><a href="/clients/visibility/{{clients_id}}" class="btn btn-success"> <i class="far fa-eye"></i> </a></td>
-              {{else}}
-                  <td  class="buttons-clients-table"><a href="/clients/invisibility/{{clients_id}}" class="btn btn-secondary"> <i class="far fa-eye-slash"></i> </a>
-              {{/if}}
-                  </td> 
-
-{{!------------------------------------- Add Day -------------------------------------}}
-              <td class="d-flex">
-                <button class="btn btn-primary" style="margin-right: 5px;" type="button" data-bs-toggle="collapse" data-bs-target="#addDay{{clients_id}}" aria-expanded="false" aria-controls="addDay{{clients_id}}">
-                    <i class="far fa-calendar-plus"></i>
-                </button>
-                <div class="collapse" id="addDay{{clients_id}}"> 
-                    <a href="/clients/editTime1/{{clients_id}}" class="btn btn-success d-block mb-1"><i class="far fa-calendar-plus"> 1</i></a>
-                    <a href="/clients/editTime3/{{clients_id}}" class="btn btn-success d-block mb-1"><i class="far fa-calendar-plus"> 3</i></a>
-                    <a href="/clients/editTime6/{{clients_id}}" class="btn btn-success d-block mb-1"><i class="far fa-calendar-plus"> 6</i></a>
-                    <a href="/clients/editTime12/{{clients_id}}" class="btn btn-success d-block mb-1"><i class="far fa-calendar-plus"> 12</i></a>
-                </div>  
-              </td>
-
-         
 
             </tr>
             {{else}}
@@ -67,6 +48,9 @@
           {{/each}}
         </tbody>
       </table>
+    </div>
+    <div class="col-3">
+        {{>addGuides}}
     </div>
   </div>
 </div>
