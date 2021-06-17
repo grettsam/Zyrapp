@@ -9,6 +9,7 @@ const app = express();
 //configuraciones
 app.set("port", process.env.PORT || 4000);
 app.set("views", path.join(__dirname, "views"));
+
 //Se crea el motor
 app.engine(
   ".hbs",
@@ -22,7 +23,8 @@ app.engine(
 );
 app.set("view engine", ".hbs");
 
-// Middleware (muestra información en la consola tiempo real)
+// Middleware
+// Morgan (muestra información en la consola tiempo real)
 app.use(morgan("dev"));
 app.use(express.urlencoded({ extended: false })); // <-- solo permite datos como texto y no imagenes
 app.use(express.json());
