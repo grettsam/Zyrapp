@@ -3,22 +3,25 @@ const router = express.Router();
 const pool = require("../database");
 const path = require("path");
 const multer = require("multer");
-const { v4: uuidv4 } = require("uuid");
+// const { v4: uuidv4 } = require("uuid");
 
 var picGuide = [];
+
 // Configuracion de Multer
 const storage = multer.diskStorage({
-  // destination: path.join(__dirname, "../public/upload/guides"),
   destination: path.join(__dirname, "../public/upload/guides"),
   filename: (req, file, cb) => {
+    const { name_plant } = req.body;
     cb(
       null,
-      uuidv4() + path.extname(file.originalname).toLocaleLowerCase()
+      name_plant.replace(/\s+/g, "_") +
+        "--" +
+        file.originalname.toLocaleLowerCase().replace(/\s+/g, "")
     );
-
-
     picGuide.push(
-      uuidv4() + path.extname(file.originalname).toLocaleLowerCase()
+      name_plant.replace(/\s+/g, "_") +
+        "--" +
+        file.originalname.toLocaleLowerCase().replace(/\s+/g, "")
     );
   },
 });
@@ -29,6 +32,17 @@ router.use(
     storage,
     dest: path.join(__dirname, "../public/upload/guides"),
     limits: { fileSize: 10000000 }, //10MB
+
+    fileFilter: (req,  file, cb) => {
+      const fileTypes = /jpeg|jpg|png|gif/;
+      const mimetype = fileTypes.test(file.mimetype);
+      const extname = fileTypes.test(path.extname(file.originalname));
+      if (mimetype && extname) {
+        return cb(null, true);
+      } else {
+        cb("Error en el tipo de archivo");
+      }
+    },
   }).fields([{ name: "pic_profile" }, { name: "pic_cover" }])
 );
 
@@ -40,35 +54,65 @@ router.get("/", async (req, res) => {
 });
 
 //*******            CREATE            ******/
-//Metodo async para enviar la query para agregar un nuevo cliente.
-router.post("/addGuide", async (req, res) => {
-  const { name_plant, category, text_guide } = req.body;
-  console.log(picGuide);
-  console.log(req.body);
-  const newGuide = {
-    name_plant,
-    category,
-    pic_profile: `http://localhost:4000/upload/guides/${picGuide[0]}`,
-    pic_cover: `http://localhost:4000/upload/guides/${picGuide[1]}`,
-    text_guide,
-  };
-  console.log(newGuide);
-  console.log(storage.getFilename());
-  await pool.query(`INSERT INTO guides set ?`, [newGuide]);
+//Metodo async para enviar la query para agregar una nueva guia.
+router.get("/addGuide", async (req, res) => {
+  res.render("guides/addGuide");
+});
+
+
+
+
+
+
+
+
+//*******            DELETE            ******/
+//Metodo async para eliminar las guias por su id
+router.get("/deleteGuides/:id", async (req, res) => {
+  const { id } = req.params;
+  await pool.query("DELETE FROM guides WHERE guides_id = ?", [id]);
   res.redirect("/guides");
 });
 
+//*******            UPDATE INFO          ******/
+//Metodo async para editar las guias por su id
+router.get("/editGuides/:id", async (req, res) => {
+  const { id } = req.params;
+  const guias = await pool.query(
+    "SELECT * FROM guides WHERE guides_id = ?",
+    [id]
+  );
+  res.render("clients/edit", { guia: guias[0] });
+});
+
+router.post("/editGuides/:id", async (req, res) => {
+  const { id } = req.params;
+  //  Arregaglar lo de abajo
+  const { username, email, password, plan } = req.body;
+  const newClient = {
+    username,
+    email,
+    password,
+    plan,
+  };
+  // 
+  await pool.query(`UPDATE guides set ? WHERE clients_id= ?`, [newClient, id]);
+  res.redirect("/clients");
+});
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 module.exports = router;
-
-//Filtro de tipo de
-
-// fileFilter: (req, file, cb) => {
-//   const filetypes = /jpeg/;
-//   const minetype = filetypes.test(filetypes.minetype);
-//   const extname = filetypes.test(path.extname(file.originalname));
-//   if (minetype && extname) {
-//     return cb(null, true);
-//   }
-//   cb("Error: El archivo debe ser una imagen valida");
-//   console.log(file);
-// },

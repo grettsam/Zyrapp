@@ -1,6 +1,6 @@
-<div class="p-4 mx-auto">
+<div class="p-4 mx-auto container">
   <div class="row clients-list">
-    <div class="col-9">
+    <div class="col-12">
         <h3>Tabla de guias</h3>
       <table class="table table-clients">
         <thead>
@@ -8,7 +8,7 @@
             <th scope="col">#</th>
             <th scope="col">Perfil</th>
             <th scope="col">Nombre</th>
-            <th scope="col">Categoria</th>
+            <th scope="col">Especie</th>
             <th scope="col">Creación</th>
             <th scope="col">Busquedas</th>
             <th scope="col">Productos</th>
@@ -23,7 +23,7 @@
               <td><img width="50px" height="50px" src={{pic_profile}} alt=""></td>
   
               <td>{{name_plant}}</td>
-              <td>{{type_plant}}</td>
+              <td>{{c_especie}}</td>
               <td>{{timeago created}}</td>
               <td>{{searched}}</td>
               <td>{{product}}</td>
@@ -33,13 +33,13 @@
                 {{!-- Buttons --}}
   
 {{!------------------------------------- See more -------------------------------------}}
-              <td  class="buttons-clients-table"><a href="/clients/more/{{guides_id}}" class="btn btn-success"><i class="fas fa-seedling"></i></a></td>
+              <td  class="buttons-clients-table"><a href="/guides/moreGuides/{{guides_id}}" class="btn btn-success"><i class="fas fa-seedling"></i></a></td>
 
 {{!------------------------------------- Edit -------------------------------------}}
-              <td class="buttons-clients-table"><a href="/clients/edit/{{guides_id}}" class="btn btn-info "> <i class="fas fa-user-edit"></i></a></td>
+              <td class="buttons-clients-table"><a href="/guides/editGuides/{{guides_id}}" class="btn btn-info "> <i class="fas fa-user-edit"></i></a></td>
 
 {{!------------------------------------- Delete -------------------------------------}}
-              <td  class="buttons-clients-table"><a href="/clients/delete/{{guides_id}}" class="btn btn-danger"><i class="far fa-trash-alt"></i></a></td>
+              <td  class="buttons-clients-table"><a href="/guides/deleteGuides/{{guides_id}}" class="btn btn-danger"><i class="far fa-trash-alt"></i></a></td>
   
 
             </tr>
@@ -48,9 +48,10 @@
           {{/each}}
         </tbody>
       </table>
+    <a class="btn btn-success" href="guides/addGuide">add</a>
     </div>
-    <div class="col-3">
+    {{!-- <div class="col-3">
         {{>addGuides}}
-    </div>
+    </div> --}}
   </div>
 </div>
