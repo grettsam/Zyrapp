@@ -131,6 +131,17 @@ router.post("/addGuide", async (req, res) => {
   res.redirect("/guides");
 });
 
+//*******            MORE INFO          ******/
+//Metodo async para editar las guias por su id
+router.get("/moreGuides/:id", async (req, res) => {
+  const { id } = req.params;
+  const guias = await pool.query("SELECT * FROM guides WHERE guides_id = ?", [
+    id,
+  ]);
+  res.render("guides/moreGuide", { guia: guias[0] });
+});
+
+
 //*******            DELETE            ******/
 //Metodo async para eliminar las guias por su id
 router.get("/deleteGuides/:id", async (req, res) => {
@@ -165,16 +176,3 @@ router.post("/editGuides/:id", async (req, res) => {
 });
 
 module.exports = router;
-
-// router.post("/addGuide", async (req, res) => {
-//   const { name_plant, category, text_guide } = req.body;
-//   const newGuide = {
-//     name_plant,
-//     category,
-//     pic_profile: `http://localhost:4000/upload/guides/${picGuide[0]}`,
-//     pic_cover: `http://localhost:4000/upload/guides/${picGuide[1]}`,
-//     text_guide,
-//   };
-//   await pool.query(`INSERT INTO guides set ?`, [newGuide]);
-//   res.redirect("/guides");
-// });

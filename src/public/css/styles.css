@@ -9,33 +9,89 @@ body {
 }
 
 /**/
-.navbar-brand img{
+.navbar-brand img {
   width: 100px;
   height: auto;
 }
 /**/
-.clients-list h3{
+.clients-list h3 {
   text-align: center;
   font-weight: 700;
 }
 
-.table-clients tr:nth-child(2n){
+.table-clients tr:nth-child(2n) {
   background-color: #ecece5da;
 }
-.table-clients thead{
+.table-clients thead {
   background-color: #434014;
   color: white;
 }
 
-
-
-
-tbody, td, tfoot, th, thead, tr {
-  border-color: transparent; 
+tbody,
+td,
+tfoot,
+th,
+thead,
+tr {
+  border-color: transparent;
   border-style: none;
   border-width: 0;
 }
 
 .buttons-clients-table {
   width: 40px;
+}
+
+/********************/
+/*More Guide*/
+
+.moreGuide__title {
+  height: 300px;
+  text-align: center;
+  background-repeat: no-repeat;
+  background-size: cover;
+  background-position: center;
+}
+
+.moreGuide__title__cover{
+  margin-top: 100px
+}
+.moreGuide__title img {
+  width: 100px;
+  height: 100px;
+  border-radius: 50%;
+}
+
+.moreGuide__title h2 {
+  margin-top: 20px;
+  padding: 20px;
+  background-color: #b2a800;
+  color: white;
+  font-weight: 700;
+  font-size: 40px;
+  line-height: 30px;
+}
+.moreGuide__title h2 span{
+  margin-top: 20px;
+  background-color: #b2a800;
+  color: white;
+  font-weight: 700;
+  font-size: 20px;
+}
+
+.moreGuide .card-body{
+  margin-top: 50px;
+}
+.moreGuide .card-body h3{
+  text-align: center;
+}
+
+.moreGuide_clasificacion{
+  border: #434014 solid 2px ;
+  border-radius: 20px;
+
+}
+
+.guia img{
+  width: 100%;
 }

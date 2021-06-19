@@ -1,0 +1,91 @@
+<div class="container p-4">
+  <div class="card moreGuide">
+    <div
+      class="card-title p-4 moreGuide__title"
+      style="background-image: url({{guia.pic_cover}});"
+    >
+      <div class="moreGuide__title__cover">
+        <img src="{{guia.pic_profile}}" alt="" />
+        <h2>{{guia.name_plant}} <br /><span>({{guia.c_especie}})</span></h2>
+      </div>
+    </div>
+    <div class="card-body p-4 mx-auto">
+      <div class="row">
+        <div class="col-4 row moreGuide_clasificacion m-3 p-4">
+
+          <h3>Clasificación</h3>
+          <div class="col-6">Reino:</div>
+          <div class="col-6">{{guia.c_reino}}</div>
+          <div class="col-6">División:</div>
+          <div class="col-6">{{guia.c_division}}</div>
+          <div class="col-6">Clase:</div>
+          <div class="col-6">{{guia.c_clase}}</div>
+          <div class="col-6">Orden:</div>
+          <div class="col-6">{{guia.c_orden}}</div>
+          <div class="col-6">Familia:</div>
+          <div class="col-6">{{guia.c_familia}}</div>
+          <div class="col-6">Genero:</div>
+          <div class="col-6">{{guia.c_genero}}</div>
+
+        </div>
+        <div class="col-4 row moreGuide_clasificacion m-3 p-4">
+
+          <h3>Ficha</h3>
+          <div class="col-6">Lugar:</div>
+          <div class="col-6">{{guia.g_lugar}}</div>
+          <div class="col-6">Inicio:</div>
+          <div class="col-6">{{guia.g_inicio}}</div>
+          <div class="col-6">Fin:</div>
+          <div class="col-6">{{guia.g_fin}}</div>
+          <div class="col-6">Tiempo:</div>
+          <div class="col-6">{{guia.g_tiempo}} Semanas</div>
+          <div class="col-6">Macetero:</div>
+          <div class="col-6">{{guia.g_macetero}} Litros</div>
+          <div class="col-6">Profundidad:</div>
+          <div class="col-6">{{guia.g_produndidad}} Cm</div>
+          <div class="col-6">Distancia:</div>
+          <div class="col-6">{{guia.g_distancia}} Cm</div>
+
+        </div>
+
+        <div class="col-3 row moreGuide_clasificacion m-3 p-4">
+
+          <h3>Datos</h3>
+          <div class="col-6">Creación:</div>
+          <div class="col-6">{{timeago guia.created_guide}}</div>
+          <div class="col-6">Buscado:</div>
+          <div class="col-6">{{guia.searched}}</div>
+          <div class="col-6">Productos:</div>
+          <div class="col-6">{{guia.product}}</div>
+          <div class="col-6">Admin:</div>
+          <div class="col-6">{{guia.admin_id}}</div>
+
+        </div>
+      </div>
+      <h3>Guia</h3>
+      <div class="row guia">
+          <h4>Tierra</h4>
+          <div class="col-6"><p>{{guia.t_tierra}}</p></div>
+          <div class="col-6"><img src="{{guia.pic_t_tierra}}" alt=""></div>
+          <h4>Germinación</h4>
+          <div class="col-6"><img src="{{guia.pic_t_germinacion}}" alt=""></div>
+          <div class="col-6"><p>{{guia.t_germinacion}}</p></div>
+          <h4>Sol</h4>
+          <div class="col-6"><p>{{guia.t_sol}}</p></div>
+          <div class="col-6"><img src="{{guia.pic_t_sol}}" alt=""></div>
+          <h4>Agua</h4>
+          <div class="col-6"><img src="{{guia.pic_t_agua}}" alt=""></div>
+          <div class="col-6"><p>{{guia.t_agua}}</p></div>
+          <h4>Consejos</h4>
+          <div class="col-6"><p>{{guia.t_consejo}}</p></div>
+          <div class="col-6"><img src="{{guia.pic_t_consejo}}" alt=""></div>
+          <h4>Enfermedades</h4>
+          <div class="col-6"><img src="{{guia.pic_t_enfermedad}}" alt=""></div>
+          <div class="col-6"><p>{{guia.t_enfermedad}}</p></div>
+          <h4>Plagas</h4>
+          <div class="col-6"><p>{{guia.t_plagas}}</p></div>
+          <div class="col-6"><img src="{{guia.pic_t_plagas}}" alt=""></div>
+      </div>
+    </div>
+  </div>
+</div>
