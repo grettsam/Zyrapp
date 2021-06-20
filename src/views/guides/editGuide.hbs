@@ -1,0 +1,461 @@
+<div class="container p-4">
+  <div class="card">
+    <h2 class="card-title mx-auto mt-2">Actualizar Guia de
+      {{guia.name_plant}}</h2>
+    <div class="card-body">
+      <form
+        action="/guides/editGuide/{{guia.guides_id}}"
+        method="POST"
+        enctype="multipart/form-data"
+      >
+        <div class="mb-3 form-group">
+          <label for="name_plant">Nombre de la guia</label>
+          <input
+            type="text"
+            name="name_plant"
+            id="name_plant"
+            class="form-control"
+            placeholder="Nombre"
+            value="{{guia.name_plant}}"
+            required
+          />
+        </div>
+        <div class="row">
+          <div class="mb-3 form-group col-6">
+            <img width="70px" height="70px" src="{{guia.pic_profile}}" alt="" />
+            <label for="pic_profile">Foto principal</label>
+            <input
+              type="file"
+              name="pic_profile"
+              id="pic_profile"
+              class="form-control"
+              accept="image/png, .jpeg, .jpg, image/gif"
+              required
+            />
+          </div>
+          <div class="mb-3 form-group col-6">
+            <img width="70px" height="70px" src="{{guia.pic_cover}}" alt="" />
+            <label for="pic_cover">Foto portada</label>
+            <input
+              type="file"
+              name="pic_cover"
+              class="form-control"
+              accept="image/png, .jpeg, .jpg, image/gif"
+              value="{{guia.pic_cover}}"
+              required
+            />
+          </div></div>
+        <div class="mb-3 form-group">
+          <label for="c_especie">Especie</label>
+          <input
+            type="text"
+            name="c_especie"
+            id="c_especie"
+            class="form-control"
+            placeholder="Nombre cientifico"
+            value="{{guia.c_especie}}"
+            required
+          />
+        </div>
+        {{! ************   Clasificación   ************ }}
+        <h5><strong>Clasificación</strong></h5>
+        <hr />
+        <div class="row">
+
+          <div class="mb-3 form-group col-6">
+            <label for="c_reino">Reino</label>
+            <select class="form-select" required name="c_reino" id="c_reino">
+              <option value="Plantae">Plantae</option>
+              <option value="Fungi">Fungi</option>
+            </select>
+          </div>
+
+          <div class="mb-3 form-group col-6">
+            <label for="c_division">División</label>
+            <select
+              class="form-select"
+              required
+              name="c_division"
+              id="c_division"
+            >
+              <option value="Rhyniophyta">Rhyniophyta</option>
+              <option value="Bryophyta"> Bryophyta</option>
+              <option value="Psilotophyta"> Psilotophyta</option>
+              <option value="Lycopodiophyta">Lycopodiophyta</option>
+              <option value="Equisetophyta">Equisetophyta</option>
+              <option value="Polypodiophyta">Polypodiophyta</option>
+              <option value="Pinophyta">Pinophyta</option>
+              <option value="Magnoliophyta">Magnoliophyta</option>
+            </select>
+          </div>
+        </div>
+
+        <div class="row">
+          <div class="mb-3 form-group col-6">
+            <label for="c_clase">Clase</label>
+            <input
+              type="text"
+              name="c_clase"
+              id="c_clase"
+              class="form-control"
+              placeholder="Clase"
+              value="{{guia.c_clase}}"
+              required
+            />
+          </div>
+          <div class="mb-3 form-group col-6">
+            <label for="c_orden">Orden</label>
+            <input
+              type="text"
+              name="c_orden"
+              id="c_orden"
+              class="form-control"
+              placeholder="Orden"
+              value="{{guia.c_orden}}"
+              required
+            />
+          </div>
+        </div>
+        <div class="row">
+          <div class="mb-3 form-group col-6">
+            <label for="c_familia">Familia</label>
+            <input
+              type="text"
+              name="c_familia"
+              id="c_familia"
+              class="form-control"
+              placeholder="Familia"
+              value="{{guia.c_familia}}"
+              required
+            />
+          </div>
+          <div class="mb-3 form-group col-6">
+            <label for="c_genero">Genero</label>
+            <input
+              type="text"
+              name="c_genero"
+              id="c_genero"
+              class="form-control"
+              placeholder="Genero"
+              value="{{guia.c_genero}}"
+              required
+            />
+          </div>
+        </div>
+        {{! ************   Tabla cultivo   ************ }}
+        <h5><strong>Tabla cultivo</strong></h5>
+        <hr />
+        <div class="mb-3 form-group">
+          <label for="g_lugar">Tierra y/o almacigo</label>
+          <input
+            type="text"
+            name="g_lugar"
+            id="g_lugar"
+            class="form-control"
+            placeholder="Tierra y/o almacigo"
+            value="{{guia.g_lugar}}"
+            required
+          />
+        </div>
+        <div class="row">
+          <div class="mb-3 form-group col-6">
+            <label for="g_inicio">Fecha inicio cultivo</label>
+            <select class="form-select" required name="g_inicio" id="g_inicio">
+              <option value="Enero">Enero</option>
+              <option value="Febrero">Febrero</option>
+              <option value="Marzo">Marzo</option>
+              <option value="Abril">Abril</option>
+              <option value="Mayo">Mayo</option>
+              <option value="Junio">Junio</option>
+              <option value="Julio">Julio</option>
+              <option value="Agosto">Agosto</option>
+              <option value="Septiembre">Septiembre</option>
+              <option value="Octubre">Octubre</option>
+              <option value="Noviembre">Noviembre</option>
+              <option value="Diciembre">Diciembre</option>
+            </select>
+          </div>
+          <div class="mb-3 form-group col-6">
+            <label for="g_fin">Fecha inicio cultivo</label>
+            <select class="form-select" required name="g_fin" id="g_fin">
+              <option value="Enero">Enero</option>
+              <option value="Febrero">Febrero</option>
+              <option value="Marzo">Marzo</option>
+              <option value="Abril">Abril</option>
+              <option value="Mayo">Mayo</option>
+              <option value="Junio">Junio</option>
+              <option value="Julio">Julio</option>
+              <option value="Agosto">Agosto</option>
+              <option value="Septiembre">Septiembre</option>
+              <option value="Octubre">Octubre</option>
+              <option value="Noviembre">Noviembre</option>
+              <option value="Diciembre">Diciembre</option>
+            </select>
+          </div>
+        </div>
+
+        <div class="row">
+          <div class="mb-3 form-group col-6">
+            <label for="g_tiempo">Tiempo a cosecha (Semana)</label>
+            <input
+              type="number"
+              name="g_tiempo"
+              id="g_tiempo"
+              class="form-control"
+              placeholder="Tiempo a cosecha"
+              value="{{guia.g_tiempo}}"
+              required
+            />
+          </div>
+          <div class="mb-3 form-group col-6">
+            <label for="g_macetero">Litros de macetas (L)</label>
+            <input
+              type="number"
+              name="g_macetero"
+              id="g_macetero"
+              class="form-control"
+              placeholder="Litros de macetas"
+              value="{{guia.g_macetero}}"
+              required
+            />
+          </div>
+        </div>
+
+        <div class="row">
+          <div class="mb-3 form-group col-6">
+            <label for="g_produndidad">Profundidad cultivo (Cm)</label>
+            <input
+              type="number"
+              name="g_produndidad"
+              id="g_produndidad"
+              class="form-control"
+              placeholder="Profundidad cultivo"
+              value="{{guia.g_produndidad}}"
+              required
+            />
+          </div>
+          <div class="mb-3 form-group col-6">
+            <label for="g_distancia">Distancia de cultivos (Cm)</label>
+            <input
+              type="number"
+              name="g_distancia"
+              id="g_distancia"
+              class="form-control"
+              placeholder="Distancia de cultivos"
+              value="{{guia.g_distancia}}"
+              required
+            />
+          </div>
+        </div>
+        {{! ************   Tabla cultivo   ************ }}
+        <h5><strong>Guia</strong></h5>
+        <hr />
+        <div class="row">
+          <div class="mb-3 col-6">
+            <div class="form-floating">
+              <textarea
+                class="form-control"
+                placeholder="Leave a comment here"
+                id="t_tierra"
+                name="t_tierra"
+              >{{guia.t_tierra}}</textarea>
+              <label for="t_tierra">Tierra</label>
+            </div>
+          </div>
+          <div class="mb-3 form-group col-6">
+            <img
+              width="70px"
+              height="70px"
+              src="{{guia.pic_t_tierra}}"
+              alt=""
+            />
+            <label for="t_tierra">Tierra</label>
+            <input
+              type="file"
+              name="pic_t_tierra"
+              id="pic_t_tierra"
+              class="form-control"
+              accept="image/png, .jpeg, .jpg, image/gif"
+              value="{{guia.pic_t_tierra}}"
+              required
+            />
+          </div>
+
+          <div class="mb-3 col-6">
+            <div class="form-floating">
+              <textarea
+                class="form-control"
+                placeholder="Leave a comment here"
+                id="t_germinacion"
+                name="t_germinacion"
+              >{{guia.t_germinacion}}</textarea>
+              <label for="t_germinacion">Germinación</label>
+            </div>
+          </div>
+          <div class="mb-3 form-group col-6">
+            <img
+              width="70px"
+              height="70px"
+              src="{{guia.pic_t_germinacion}}"
+              alt=""
+            />
+            <label for="pic_t_germinacion">Germinación</label>
+            <input
+              type="file"
+              name="pic_t_germinacion"
+              id="pic_t_germinacion"
+              class="form-control"
+              accept="image/png, .jpeg, .jpg, image/gif"
+              value="{{guia.pic_t_germinacion}}"
+              required
+            />
+          </div>
+
+          <div class="mb-3 col-6">
+            <div class="form-floating">
+              <textarea
+                class="form-control"
+                placeholder="Leave a comment here"
+                id="t_sol"
+                name="t_sol"
+              >{{guia.t_sol}}</textarea>
+              <label for="t_sol">Sol</label>
+            </div>
+          </div>
+          <div class="mb-3 form-group col-6">
+            <img width="70px" height="70px" src="{{guia.pic_t_sol}}" alt="" />
+            <label for="pic_t_sol">Sol</label>
+            <input
+              type="file"
+              name="pic_t_sol"
+              id="pic_t_sol"
+              class="form-control"
+              accept="image/png, .jpeg, .jpg, image/gif"
+              value="{{guia.pic_t_sol}}"
+              required
+            />
+          </div>
+
+          <div class="mb-3 col-6">
+            <div class="form-floating">
+              <textarea
+                class="form-control"
+                placeholder="Leave a comment here"
+                id="t_agua"
+                name="t_agua"
+              >{{guia.t_agua}}</textarea>
+              <label for="t_agua">Agua</label>
+            </div>
+          </div>
+          <div class="mb-3 form-group col-6">
+            <img width="70px" height="70px" src="{{guia.pic_t_agua}}" alt="" />
+            <label for="pic_t_agua">Agua</label>
+            <input
+              type="file"
+              name="pic_t_agua"
+              id="pic_t_agua"
+              class="form-control"
+              accept="image/png, .jpeg, .jpg, image/gif"
+              value="{{guia.pic_t_agua}}"
+              required
+            />
+          </div>
+
+          <div class="mb-3 col-6">
+            <div class="form-floating">
+              <textarea
+                class="form-control"
+                placeholder="Leave a comment here"
+                id="t_consejo"
+                name="t_consejo"
+              >{{guia.t_consejo}}</textarea>
+              <label for="t_consejo">Consejos</label>
+            </div>
+          </div>
+          <div class="mb-3 form-group col-6">
+            <img
+              width="70px"
+              height="70px"
+              src="{{guia.pic_t_consejo}}"
+              alt=""
+            />
+            <label for="pic_t_consejo">Consejos</label>
+            <input
+              type="file"
+              name="pic_t_consejo"
+              id="pic_t_consejo"
+              class="form-control"
+              accept="image/png, .jpeg, .jpg, image/gif"
+              value="{{guia.pic_t_consejo}}"
+              required
+            />
+          </div>
+
+          <div class="mb-3 col-6">
+            <div class="form-floating">
+              <textarea
+                class="form-control"
+                placeholder="Leave a comment here"
+                id="t_enfermedad"
+                name="t_enfermedad"
+              >{{guia.t_enfermedad}}</textarea>
+              <label for="t_enfermedad">Enfermedades</label>
+            </div>
+          </div>
+          <div class="mb-3 form-group col-6">
+            <img
+              width="70px"
+              height="70px"
+              src="{{guia.pic_t_enfermedad}}"
+              alt=""
+            />
+            <label for="pic_t_enfermedad">Enfermedades</label>
+            <input
+              type="file"
+              name="pic_t_enfermedad"
+              id="pic_t_enfermedad"
+              class="form-control"
+              accept="image/png, .jpeg, .jpg, image/gif"
+              value="{{guia.pic_t_enfermedad}}"
+              required
+            />
+          </div>
+
+          <div class="mb-3 col-6">
+            <div class="form-floating">
+              <textarea
+                class="form-control"
+                placeholder="Leave a comment here"
+                id="t_plagas"
+                name="t_plagas"
+              >{{guia.t_plagas}}</textarea>
+              <label for="t_plagas">Plagas</label>
+            </div>
+          </div>
+          <div class="mb-3 form-group col-6">
+            <img
+              width="70px"
+              height="70px"
+              src="{{guia.pic_t_plagas}}"
+              alt=""
+            />
+            <label for="pic_t_plagas">Plagas</label>
+            <input
+              type="file"
+              name="pic_t_plagas"
+              id="pic_t_plagas"
+              class="form-control"
+              accept="image/png, .jpeg, .jpg, image/gif"
+              value="{{guia.pic_t_plagas}}"
+              required
+            />
+          </div>
+        </div>
+
+        <div class="mb-3 d-grid gap-2">
+          <button class="btn btn-success btn-block">Agregar</button>
+        </div>
+      </form>
+    </div>
+  </div>
+</div>

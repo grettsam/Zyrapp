@@ -34,7 +34,7 @@ router.use(
     limits: { fileSize: 10000000 }, //10MB
 
     fileFilter: (req, file, cb) => {
-      const fileTypes = /jpeg|jpg|png|gif/;
+      const fileTypes = /jpeg|jpg|png|gif|JPEG|JPG|PNG|GIF/;
       const mimetype = fileTypes.test(file.mimetype);
       const extname = fileTypes.test(path.extname(file.originalname));
       if (mimetype && extname) {
@@ -133,7 +133,7 @@ router.post("/addGuide", async (req, res) => {
 
 //*******            MORE INFO          ******/
 //Metodo async para editar las guias por su id
-router.get("/moreGuides/:id", async (req, res) => {
+router.get("/moreGuide/:id", async (req, res) => {
   const { id } = req.params;
   const guias = await pool.query("SELECT * FROM guides WHERE guides_id = ?", [
     id,
@@ -141,10 +141,9 @@ router.get("/moreGuides/:id", async (req, res) => {
   res.render("guides/moreGuide", { guia: guias[0] });
 });
 
-
 //*******            DELETE            ******/
 //Metodo async para eliminar las guias por su id
-router.get("/deleteGuides/:id", async (req, res) => {
+router.get("/deleteGuide/:id", async (req, res) => {
   const { id } = req.params;
   await pool.query("DELETE FROM guides WHERE guides_id = ?", [id]);
   res.redirect("/guides");
@@ -152,27 +151,77 @@ router.get("/deleteGuides/:id", async (req, res) => {
 
 //*******            UPDATE INFO          ******/
 //Metodo async para editar las guias por su id
-router.get("/editGuides/:id", async (req, res) => {
+router.get("/editGuide/:id", async (req, res) => {
   const { id } = req.params;
   const guias = await pool.query("SELECT * FROM guides WHERE guides_id = ?", [
     id,
   ]);
-  res.render("clients/edit", { guia: guias[0] });
+  res.render("guides/editGuide", { guia: guias[0] });
 });
 
-router.post("/editGuides/:id", async (req, res) => {
+router.post("/editGuide/:id", async (req, res) => {
   const { id } = req.params;
   //  Arregaglar lo de abajo
-  const { username, email, password, plan } = req.body;
+  const {
+    name_plant,
+    c_especie,
+    c_reino,
+    c_division,
+    c_clase,
+    c_orden,
+    c_familia,
+    c_genero,
+    g_lugar,
+    g_inicio,
+    g_fin,
+    g_tiempo,
+    g_macetero,
+    g_produndidad,
+    g_distancia,
+    t_tierra,
+    t_germinacion,
+    t_sol,
+    t_agua,
+    t_consejo,
+    t_enfermedad,
+    t_plagas,
+  } = req.body;
   const newClient = {
-    username,
-    email,
-    password,
-    plan,
+    name_plant,
+    pic_profile: `http://localhost:4000/upload/guides/${picGuide[0]}`,
+    pic_cover: `http://localhost:4000/upload/guides/${picGuide[1]}`,
+    c_especie,
+    c_reino,
+    c_division,
+    c_clase,
+    c_orden,
+    c_familia,
+    c_genero,
+    g_lugar,
+    g_inicio,
+    g_fin,
+    g_tiempo,
+    g_macetero,
+    g_produndidad,
+    g_distancia,
+    t_tierra,
+    pic_t_tierra: `http://localhost:4000/upload/guides/${picGuide[2]}`,
+    t_germinacion,
+    pic_t_germinacion: `http://localhost:4000/upload/guides/${picGuide[3]}`,
+    t_sol,
+    pic_t_sol: `http://localhost:4000/upload/guides/${picGuide[4]}`,
+    t_agua,
+    pic_t_agua: `http://localhost:4000/upload/guides/${picGuide[5]}`,
+    t_consejo,
+    pic_t_consejo: `http://localhost:4000/upload/guides/${picGuide[6]}`,
+    t_enfermedad,
+    pic_t_enfermedad: `http://localhost:4000/upload/guides/${picGuide[7]}`,
+    t_plagas,
+    pic_t_plagas: `http://localhost:4000/upload/guides/${picGuide[8]}`,
   };
   //
-  await pool.query(`UPDATE guides set ? WHERE clients_id= ?`, [newClient, id]);
-  res.redirect("/clients");
+  await pool.query(`UPDATE guides set ? WHERE guides_id= ?`, [newClient, id]);
+  res.redirect("/guides");
 });
 
 module.exports = router;
