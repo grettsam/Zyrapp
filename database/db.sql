@@ -22,20 +22,8 @@ CREATE TABLE clients(
     admin_id INT(11),
     CONSTRAINT fk_admin_clients FOREIGN KEY (admin_id) REFERENCES admin(admin_id)
 );
--- guide table
--- CREATE TABLE guides(
---     guides_id INT(11) NOT NULL PRIMARY KEY AUTO_INCREMENT,
---     name_plant VARCHAR(50) NOT NULL,
---     category VARCHAR(50) NOT NULL,
---     pic_profile TEXT NOT NULL DEFAULT 'assets/img/logo.svg',
---     pic_cover TEXT NOT NULL DEFAULT 'assets/img/logo.svg',
---     text_guide TEXT NOT NULL,
---     created_guide DATE NOT NULL DEFAULT CURDATE(),
---     searched INT(11) DEFAULT 0,
---     product INT (11) DEFAULT 0,
---     admin_id INT(11),
---     CONSTRAINT fk_admin_guide FOREIGN KEY (admin_id) REFERENCES admin(admin_id)
--- );
+
+
 CREATE TABLE guides(
     guides_id INT(11) NOT NULL PRIMARY KEY AUTO_INCREMENT,
     name_plant VARCHAR(50) NOT NULL,

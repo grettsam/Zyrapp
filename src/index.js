@@ -2,7 +2,11 @@ const express = require("express");
 const morgan = require("morgan");
 const exphbs = require("express-handlebars");
 const path = require("path");
+const flash = require("connect-flash");
+const mysqlStore = require("express-mysql-session");
+const session = require("express-session");
 
+const { database } = require("./keys");
 // inicializaciones
 const app = express();
 
@@ -24,6 +28,16 @@ app.engine(
 app.set("view engine", ".hbs");
 
 // Middleware
+app.use(
+  session({
+    secret: "Zyrapp Session",
+    resave: false,
+    saveUninitialized: false,
+    store: new mysqlStore(database),
+  })
+);
+// Connect-Flash (muestra mensajes al usuario)
+app.use(flash());
 // Morgan (muestra información en la consola tiempo real)
 app.use(morgan("dev"));
 app.use(express.urlencoded({ extended: false })); // <-- solo permite datos como texto y no imagenes
@@ -31,6 +45,7 @@ app.use(express.json());
 
 //Variables Globales
 app.use((req, res, next) => {
+  app.locals.success = req.flash("success");
   next();
 });
 
