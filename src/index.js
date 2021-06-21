@@ -5,10 +5,12 @@ const path = require("path");
 const flash = require("connect-flash");
 const mysqlStore = require("express-mysql-session");
 const session = require("express-session");
+const passport = require("passport");
 
 const { database } = require("./keys");
 // inicializaciones
 const app = express();
+require('./lib/passport')
 
 //configuraciones
 app.set("port", process.env.PORT || 4000);
@@ -42,7 +44,8 @@ app.use(flash());
 app.use(morgan("dev"));
 app.use(express.urlencoded({ extended: false })); // <-- solo permite datos como texto y no imagenes
 app.use(express.json());
-
+app.use(passport.initialize());
+app.use(passport.session());
 //Variables Globales
 app.use((req, res, next) => {
   app.locals.success = req.flash("success");

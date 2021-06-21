@@ -128,6 +128,7 @@ router.post("/addGuide", async (req, res) => {
     pic_t_plagas: `http://localhost:4000/upload/guides/${picGuide[8]}`,
   };
   await pool.query(`INSERT INTO guides set ?`, [newClient]);
+  req.flash("success", "Guia creada");
   res.redirect("/guides");
 });
 
@@ -146,6 +147,7 @@ router.get("/moreGuide/:id", async (req, res) => {
 router.get("/deleteGuide/:id", async (req, res) => {
   const { id } = req.params;
   await pool.query("DELETE FROM guides WHERE guides_id = ?", [id]);
+  req.flash("success", "Guia Eliminada");
   res.redirect("/guides");
 });
 
@@ -156,6 +158,7 @@ router.get("/editGuide/:id", async (req, res) => {
   const guias = await pool.query("SELECT * FROM guides WHERE guides_id = ?", [
     id,
   ]);
+  
   res.render("guides/editGuide", { guia: guias[0] });
 });
 
@@ -221,6 +224,7 @@ router.post("/editGuide/:id", async (req, res) => {
   };
   //
   await pool.query(`UPDATE guides set ? WHERE guides_id= ?`, [newClient, id]);
+  req.flash("success", "Guia actualizada");
   res.redirect("/guides");
 });
 

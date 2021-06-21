@@ -1,7 +1,7 @@
 const express = require("express");
 const router = express.Router();
 const pool = require("../database");
-
+const helpers = require("../lib/helpers");
 //*******            READ            ******/
 //Metodo async para listar los clientes
 router.get("/", async (req, res) => {
@@ -19,6 +19,8 @@ router.post("/add", async (req, res) => {
     password,
     plan,
   };
+
+  newClient.password = await helpers.encriptador(password); // encriptar cuenta del cliente
   await pool.query(`INSERT INTO clients set ?`, [newClient]);
   req.flash("success", "Cliente creado correctamente");
   res.redirect("/clients");

@@ -4,17 +4,16 @@ USE zyrapp;
 CREATE TABLE admin(
     admin_id INT(11) NOT NULL PRIMARY KEY AUTO_INCREMENT,
     username VARCHAR(50) NOT NULL,
-    email VARCHAR(50) NOT NULL,
     password VARCHAR(60) NOT NULL,
-    type_accounts int(11) NOT NULL,
+    email VARCHAR(50) NOT NULL,
     init_accounts DATE NOT NULL DEFAULT NOW()
 );
 -- client table
 CREATE TABLE clients(
     clients_id INT(11) NOT NULL PRIMARY KEY AUTO_INCREMENT,
     username VARCHAR(50) NOT NULL,
-    email VARCHAR(50) NOT NULL,
     password VARCHAR(60) NOT NULL,
+    email VARCHAR(50) NOT NULL,
     plan VARCHAR(20) NOT NULL,
     visibility BOOLEAN NOT NULL DEFAULT false,
     start_plan DATE NOT NULL DEFAULT CURDATE(),
