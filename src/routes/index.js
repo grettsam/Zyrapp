@@ -2,6 +2,6 @@ const express = require("express");
 const router = express.Router();
 
 router.get("/", (req, res) => {
-  res.render("auth/login");
+  res.render("profile");
 });
 module.exports = router;
