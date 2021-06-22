@@ -1,19 +1,20 @@
-<div class="p-4 ">
-  <div class="row clients-list">
-    <div class="col-9">
+{{#if user}}
+<div class="pt-4 container">
+  <div class="row clients-list mx-auto">
+    <div class="col-8">
         <h3>Tabla de clientes</h3>
       <table class="table table-clients">
         <thead>
           <tr>
             <th scope="col">#</th>
-            <th scope="col">Username</th>
-            <th scope="col">Email</th>
-            <th scope="col">Password</th>
+            <th scope="col">Usuario</th>
+            <th scope="col">Correo Electrónico</th>
+            {{!-- <th scope="col">Password</th> --}}
             <th scope="col">Plan</th>
-            <th scope="col">Start Plan</th>
-            <th scope="col">End Plan</th>
+            <th scope="col">Inicio de Plan</th>
+            <th scope="col">Fin de Plan</th>
             <th scope="col">Admin</th>
-            <th colspan="4" scope="col" class="text-center">Options</th>
+            <th colspan="4" scope="col" class="text-center">Opciones</th>
           </tr>
         </thead>
         <tbody>
@@ -22,7 +23,7 @@
               <th scope="row">{{clients_id}}</th>
               <td>{{username}}</td>
               <td>{{email}}</td>
-              <td>{{password}}</td>
+              {{!-- <td>{{password}}</td> --}}
               <td>{{plan}}</td>
               <td>{{timeago start_plan}}</td>
               <td>{{timeago end_plan}}</td>
@@ -73,3 +74,4 @@
     </div>
   </div>
 </div>
+{{/if}}

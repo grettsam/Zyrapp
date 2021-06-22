@@ -22,7 +22,7 @@ body {
 .table-clients tr:nth-child(2n) {
   background-color: #ecece5da;
 }
-.table-clients thead {
+.table-clients thead { /*Clientes tabla (Username, Email, Plan , etc.)*/
   background-color: #434014;
   color: white;
 }
@@ -95,4 +95,24 @@ tr {
 .guia img{
   width: 100%;
 }
-/*hola*/
+/*btn Login y Register*/
+
+.btn-primary{
+    background-color: #b2a800;
+    border-color: #b2a800;
+}
+
+.btn-success{
+  background-color: #b2a800;
+  border-color: #b2a800;
+}
+
+.btn-primary:hover{
+  background-color: #b2a900b9;
+  border-color: #b2a900b9;
+}
+
+.btn-success:hover{
+  background-color: #b2a900b9;
+  border-color: #b2a900b9;
+}

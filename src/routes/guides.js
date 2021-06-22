@@ -3,7 +3,7 @@ const router = express.Router();
 const pool = require("../database");
 const path = require("path");
 const multer = require("multer");
-// const { v4: uuidv4 } = require("uuid");
+const { isLoginIn } = require("../lib/auth");
 
 var picGuide = [];
 
@@ -58,14 +58,14 @@ router.use(
 
 //*******            READ            ******/
 //Metodo async para listar los guias
-router.get("/", async (req, res) => {
+router.get("/", isLoginIn, async (req, res) => {
   const guides = await pool.query("SELECT * FROM guides");
   res.render("guides/guideList", { guides });
 });
 
 //*******            CREATE            ******/
 //Metodo async para enviar la query para agregar una nueva guia.
-router.get("/addGuide", async (req, res) => {
+router.get("/addGuide", isLoginIn, async (req, res) => {
   res.render("guides/addGuide");
 });
 
@@ -126,14 +126,16 @@ router.post("/addGuide", async (req, res) => {
     pic_t_enfermedad: `http://localhost:4000/upload/guides/${picGuide[7]}`,
     t_plagas,
     pic_t_plagas: `http://localhost:4000/upload/guides/${picGuide[8]}`,
+    admin_id: req.user.admin_id,
   };
   await pool.query(`INSERT INTO guides set ?`, [newClient]);
+  req.flash("success", "Guia creada");
   res.redirect("/guides");
 });
 
 //*******            MORE INFO          ******/
 //Metodo async para editar las guias por su id
-router.get("/moreGuide/:id", async (req, res) => {
+router.get("/moreGuide/:id", isLoginIn, async (req, res) => {
   const { id } = req.params;
   const guias = await pool.query("SELECT * FROM guides WHERE guides_id = ?", [
     id,
@@ -143,19 +145,21 @@ router.get("/moreGuide/:id", async (req, res) => {
 
 //*******            DELETE            ******/
 //Metodo async para eliminar las guias por su id
-router.get("/deleteGuide/:id", async (req, res) => {
+router.get("/deleteGuide/:id", isLoginIn, async (req, res) => {
   const { id } = req.params;
   await pool.query("DELETE FROM guides WHERE guides_id = ?", [id]);
+  req.flash("success", "Guia Eliminada");
   res.redirect("/guides");
 });
 
 //*******            UPDATE INFO          ******/
 //Metodo async para editar las guias por su id
-router.get("/editGuide/:id", async (req, res) => {
+router.get("/editGuide/:id", isLoginIn, async (req, res) => {
   const { id } = req.params;
   const guias = await pool.query("SELECT * FROM guides WHERE guides_id = ?", [
     id,
   ]);
+  
   res.render("guides/editGuide", { guia: guias[0] });
 });
 
@@ -221,6 +225,7 @@ router.post("/editGuide/:id", async (req, res) => {
   };
   //
   await pool.query(`UPDATE guides set ? WHERE guides_id= ?`, [newClient, id]);
+  req.flash("success", "Guia actualizada");
   res.redirect("/guides");
 });
 

@@ -1,0 +1,35 @@
+<div class="container">
+
+  <div class="card w-50 mx-auto my-5 p-5"><div class="card-body">
+      <form action="/login" method="POST">
+        <div class="mb-3 text-center">
+          <img src="assets/img/logo.svg" alt="" />
+          <hr>
+          <h3>Administración</h3>
+        </div>
+        <div class="mb-3">
+          <label for="username" class="form-label">Usuario</label>
+          <input
+            type="text"
+            class="form-control"
+            id="username"
+            name="username"
+            aria-describedby="username"
+          />
+
+        </div>
+        <div class="mb-3">
+          <label for="password" class="form-label">Contraseña</label>
+          <input
+            type="password"
+            class="form-control"
+            name="password"
+            id="password"
+          />
+        </div>
+        <button type="submit" class="btn btn-primary">Ingresar</button>
+        <a href="/signup"><button type="button" class="btn btn-success">Regístrate</button></a>
+      </form>
+    </div></div>
+
+</div>
