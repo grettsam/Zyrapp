@@ -1,10 +1,16 @@
 {{#if user}}
-
+  
   <div class="container p-4">
-    <p>ID: {{user.admin_id}}</p>
-    <p>Usuario: {{user.username}}</p>
-    <p>Correo Electrónico: {{user.email}}</p>
-    <p>Contraseña: {{user.password}}</p>
+    <div class="row">
+      <div class="col-12 my-3 pt-3 shadow d-flex">
+      <img src="https://cdn.icon-icons.com/icons2/1508/PNG/512/systemusers_104569.png" width="70" height="70" class="rounded-circle mr-2">
+      <div class="d-block">
+      <h4>ID: {{user.admin_id}}</h4> 
+      <h4>Usuario: {{user.username}}</h4> 
+      <h4>Correo Electrónico: {{user.email}}</h4>
+      </div>
+      </div>
+    </div>
   </div>
 
 {{/if}}

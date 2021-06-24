@@ -116,3 +116,23 @@ tr {
   background-color: #b2a900b9;
   border-color: #b2a900b9;
 }
+
+.btn-danger{
+  background-color: rgba(255, 145, 0, 0.986);
+  border-color: rgba(255, 145, 0, 0.986);
+}
+.btn-danger:hover{
+  background-color: rgba(255, 145, 0, 0.685);
+  border-color: rgba(255, 145, 0, 0.685);
+}
+.btn-info{
+  background-color: rgba(255, 145, 0, 0.986);
+  border-color: rgba(255, 145, 0, 0.986);
+  color:white;
+}
+.btn-info:hover{
+  background-color: rgba(255, 145, 0, 0.685);
+  border-color: rgba(255, 145, 0, 0.685);
+  color:white;
+}
+
