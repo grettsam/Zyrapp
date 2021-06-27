@@ -135,4 +135,16 @@ tr {
   border-color: rgba(255, 145, 0, 0.685);
   color:white;
 }
+.bgcolor{
+  background: #b2a800;
+}
+.textcolor{
+  color: #b2a800;
+}
+  /*<div class="container p-4 ">
+    <div class="row ">
+      <div class="col-12 my-3 pt-3 shadow d-flex colorprofile">
+      <img src="https://cdn.icon-icons.com/icons2/1508/PNG/512/systemusers_104569.png" width="70" height="70" class="rounded-circle mr-2">
+      <div class="d-block">*/
+
 
