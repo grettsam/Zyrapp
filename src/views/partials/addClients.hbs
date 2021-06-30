@@ -1,7 +1,7 @@
 <div class="card">
   <h2 class="card-title mx-auto mt-2">Nuevo Cliente</h2>
   <div class="card-body">
-    <form action="/clients/add" method="POST">
+    <form action="/clients/add" method="POST" enctype="multipart/form-data">
       <div class="mb-3">
         <input
           type="text"
@@ -38,6 +38,53 @@
           <option value="medio">Medio</option>
           <option value="premium">Premium</option>
         </select>
+      </div>
+      <div class="mb-3">
+        <input
+          type="file"
+          accept="image/png, .jpeg, .jpg, image/gif"
+          name="pic_perfil"
+        />
+      </div>
+      <div class="mb-3">
+        <input
+          type="number"
+          name="banco"
+          class="form-control"
+          placeholder="Cuenta de banco"
+        />
+      </div>
+      <div class="mb-3">
+        <input
+          type="number"
+          name="telefono"
+          class="form-control"
+          placeholder="Telefono"
+        />
+      </div>
+      <div class="mb-3">
+        <input
+          type="text"
+          name="region"
+          class="form-control"
+          placeholder="Region"
+        />
+      </div>
+      <div class="mb-3">
+        <input
+          type="text"
+          name="comuna"
+          class="form-control"
+          placeholder="Comuna"
+        />
+      </div>
+      <div class="mb-3">
+        <input
+          type="text"
+          name="direccion"
+          class="form-control"
+          placeholder="Dirección"
+        />
       </div>
       <div class="mb-3 d-grid gap-2">
         <button class="btn btn-success btn-block">Agregar</button>

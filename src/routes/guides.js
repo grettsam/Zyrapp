@@ -59,7 +59,7 @@ router.use(
 //*******            READ            ******/
 //Metodo async para listar los guias
 router.get("/", isLoginIn, async (req, res) => {
-  const guides = await pool.query("SELECT * FROM guides");
+  const guides = await pool.query("SELECT guides.*, admin.username AS adminUsername FROM guides INNER JOIN admin ON guides.admin_id = admin.admin_id WHERE guides.admin_id=1", [req.user.admin_id]);
   res.render("guides/guideList", { guides });
 });
 

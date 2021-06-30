@@ -1,27 +1,86 @@
 const express = require("express");
 const router = express.Router();
 const pool = require("../database");
-const helpers = require("../lib/helpers");
+const path = require("path");
+const multer = require("multer");
+const helpers = require("../lib/helpers")
 const { isLoginIn } = require("../lib/auth");
 
+var picCliente = [];
+
+// Configuracion de Multer
+const storage = multer.diskStorage({
+  destination: path.join(__dirname, "../public/upload/guides"),
+  filename: (req, file, cb) => {
+    const { username } = req.body;
+    cb(
+      null,
+      username.replace(/\s+/g, "_") +
+        "--" +
+        file.originalname.toLocaleLowerCase().replace(/\s+/g, "")
+    );
+    picCliente.push(
+      username.replace(/\s+/g, "_") +
+        "--" +
+        file.originalname.toLocaleLowerCase().replace(/\s+/g, "")
+    );
+  },
+});
+
+// Multer (Subir imagenes)
+router.use(
+  multer({
+    storage,
+    dest: path.join(__dirname, "../public/upload/clientes"),
+    limits: { fileSize: 2000000 }, //2MB
+
+    fileFilter: (req, file, cb) => {
+      const fileTypes = /jpeg|jpg|png|gif|JPEG|JPG|PNG|GIF/;
+      const mimetype = fileTypes.test(file.mimetype);
+      const extname = fileTypes.test(path.extname(file.originalname));
+      if (mimetype && extname) {
+        return cb(null, true);
+      } else {
+        cb("Error en el tipo de archivo");
+      }
+    },
+  }).fields([{ name: "pic_perfil" }])
+);
 
 //*******            READ            ******/
 //Metodo async para listar los clientes
 router.get("/", isLoginIn, async (req, res) => {
-  const clientes = await pool.query("SELECT * FROM clients");
+
+  const clientes = await pool.query("SELECT clients.*, admin.username AS adminUsername FROM clients INNER JOIN admin ON clients.admin_id = admin.admin_id WHERE clients.admin_id=1", [req.user.admin_id]);
   res.render("clients/clientsList", { clientes });
 });
 
 //*******            CREATE            ******/
 //Metodo async para enviar la query para agregar un nuevo cliente.
 router.post("/add", async (req, res) => {
-  const { username, email, password, plan } = req.body;
+  const {
+    username,
+    email,
+    password,
+    plan,
+    banco,
+    telefono,
+    region,
+    comuna,
+    direccion,
+  } = req.body;
   const newClient = {
     username,
-    password,
     email,
+    password,
     plan,
-    admin_id: req.user.admin_id
+    banco,
+    telefono,
+    region,
+    comuna,
+    direccion,
+    pic_perfil: `http://localhost:4000/upload/cliente/${picCliente[0]}`,
+    admin_id: req.user.admin_id,
   };
 
   newClient.password = await helpers.encriptador(password); // encriptar cuenta del cliente
